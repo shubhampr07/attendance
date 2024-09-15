@@ -123,7 +123,7 @@ const AttendanceList = () => {
   const fetchAttendances = async (date) => {
     try {
       const formattedDate = format(date, 'yyyy-MM-dd');
-      const response = await axios.get(`http://localhost:5000/attendance?date=${formattedDate}`);
+      const response = await axios.get(`https://attendance-jgqz.onrender.com/attendance?date=${formattedDate}`);
       setAttendances(response.data);
       setFilteredAttendances(response.data);
     } catch (error) {
@@ -140,7 +140,7 @@ const AttendanceList = () => {
 
   const handleCheckOut = async (id) => {
     try {
-      const response = await axios.post(`http://localhost:5000/attendance/${id}/checkout`);
+      const response = await axios.post(`https://attendance-jgqz.onrender.com/attendance/${id}/checkout`);
       setAttendances(attendances.map(record =>
         record._id === id ? response.data : record
       ));

@@ -12,7 +12,7 @@ const AttendanceForm = ({ onSubmit }) => {
     const fetchSuggestions = async () => {
       if (name.length > 0) {
         try {
-          const response = await axios.get(`http://localhost:5000/names?prefix=${name}`);
+          const response = await axios.get(`https://attendance-jgqz.onrender.com/names?prefix=${name}`);
           setSuggestions(response.data);
           setShowSuggestions(true); 
         } catch (error) {
@@ -50,7 +50,7 @@ const AttendanceForm = ({ onSubmit }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('http://localhost:5000/attendance', { name });
+      await axios.post('https://attendance-jgqz.onrender.com/attendance', { name });
       onSubmit();
     } catch (error) {
       console.error('Error marking attendance:', error);
